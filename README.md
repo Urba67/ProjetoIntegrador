@@ -8,7 +8,7 @@ O site tem como objetivo apresentar um guia visual sobre o uso responsável da I
 
 👥 EQUIPE
 
-Urban
+Arthur Urban
 Matheus Nunes
 Gabriel Leonardo de Souza
 
