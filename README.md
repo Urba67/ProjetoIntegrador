@@ -1,19 +1,51 @@
-# Projeto Integrador — NEXO
+## 🖼️ Projeto Integrador — NEXO: A IA na Educação
 
-O NEXO é um guia prático para estudantes sobre o uso da inteligência artificial como apoio nas provas, nos trabalhos e no aprendizado, com autonomia, autoria e orientação dos professores.
+Site educativo sobre o uso responsável da inteligência artificial como apoio à aprendizagem.
 
-## Páginas
+## 🎯 Objetivo do Projeto
 
-- [Início](index.html)
-- [Método de estudo](metodo.html)
-- [Ferramentas de IA](ferramentas.html)
-- [Cuidados](cuidados.html)
-- [Quiz](quiz.html)
-- [Formulário](formulario.html)
-- [Pesquisa](pesquisas.html)
-- [Referências](referencias.html)
+Orientar estudantes a usar ferramentas de inteligência artificial nos estudos com pensamento crítico, autoria e responsabilidade, sem substituir o esforço do estudante nem a orientação dos professores.
 
-## Como abrir
+## 👥 Equipe
 
-Abra `index.html` no navegador. As páginas compartilham `style.css`, `script.js`, as imagens de `img/` e a fonte armazenada em `fonts/`.
+1. Arthur Urban — documentação
+2. Matheus Nunes — liderança e desenvolvimento do site
+3. Gabriel Leonardo de Souza — apresentação
 
+## 🚀 Como usar o site
+
+1. Abra o arquivo `index.html` no navegador.
+2. Use o menu principal para acessar as páginas do NEXO.
+3. Explore o quiz e o formulário para conhecer os recursos interativos.
+
+## 📁 Estrutura do Site
+
+```text
+ProjetoIntegrador/
+├── index.html
+├── metodo.html
+├── ferramentas.html
+├── cuidados.html
+├── quiz.html
+├── formulario.html
+├── pesquisas.html
+├── referencias.html
+├── style.css
+├── script.js
+├── README.md
+├── fonts/
+│   └── Alata-Regular.ttf
+└── img/
+    ├── imagens e logotipos utilizados pelo site
+    └── ...
+```
+
+## 🧰 Tecnologias utilizadas
+
+- HTML5
+- CSS3
+- JavaScript
+
+## 📜 Licença
+
+Projeto desenvolvido para fins educacionais. O repositório não possui uma licença formal definida.
