@@ -35,9 +35,7 @@ ProjetoIntegrador/
 ├── README.md
 ├── fonts/
 │   └── Alata-Regular.ttf
-└── img/
-    ├── imagens e logotipos utilizados pelo site
-    └── ...
+└── img/  (imagens e logotipos do site)
 ```
 
 ## 🧰 Tecnologias utilizadas
