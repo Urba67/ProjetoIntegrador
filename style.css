@@ -1,0 +1,3975 @@
+/* =========================================================
+   NEXO — CSS Vanilla
+   Direção editorial de laboratório
+   Papel creme: #FDEFD2
+   Vinho: #7A0022
+   Tipografia editorial e composição assimétrica
+   ========================================================= */
+
+/*
+   GUIA DO ARQUIVO
+   - Base compartilhada: fontes, cores, cabeçalho, menu e componentes comuns.
+   - Página inicial: destaque e apresentação do NEXO (index.html).
+   - Páginas de conteúdo: Entenda, Cuidados, Quiz, Formulário, Referências,
+     Ferramentas de IA e Pesquisas.
+   - Tema escuro, acessibilidade e regras para telas menores/maiores.
+   - Mais abaixo há ajustes visuais posteriores. Eles ficam no fim de propósito,
+     pois refinam ou substituem regras anteriores. Mantenha essa ordem da cascata.
+*/
+
+
+/* =========================================================
+   FONTES
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Didact+Gothic&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Quicksand:wght@400;500;600;700&display=swap');
+
+@font-face {
+    font-family: 'Alata';
+    src: url('fonts/Alata-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
+
+:root {
+    --wine: #7a0022;
+    --cream: #fdefd2;
+    --ink: #3d0717;
+    --muted: #704555;
+    --paper: #fffcf6;
+    --line: #e8c995;
+    --soft: #f8e4bc;
+}
+
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.cabecalho {
+    height: 78px;
+    padding: 0 clamp(20px, 5vw, 76px);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 250, 244, 0.9);
+
+    backdrop-filter: blur(14px);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.imagem-marca {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.imagem-selo {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px; /* Equivalent padding on all sides */
+    
+    font-size: 20px;
+    letter-spacing: 0.14em;
+    font-weight: 600;
+
+    color: var(--wine);
+    font-family: 'Alata', sans-serif;
+}
+
+.simbolo-marca,
+.seal-mark,
+.marca-rodape {
+    font-size: 21px;
+    color: var(--wine);
+}
+
+
+/* =========================================================
+   NAVEGAÇÃO
+   ========================================================= */
+
+.navegacao-principal {
+    display: flex;
+    gap: clamp(18px, 3vw, 42px);
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    font: 11px 'DM Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+
+    color: #765e63;
+}
+
+.navegacao-principal a,
+.link-texto,
+.referencias a {
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+/* =========================================================
+   FORMULÁRIO
+   ========================================================= */
+
+/* ===== PÁGINA: FORMULÁRIO (formulario.html) ===== */
+.secao-formulario {
+    background: var(--paper);
+}
+
+.layout-formulario {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: clamp(35px, 10vw, 150px);
+    align-items: start;
+}
+
+.introducao-formulario {
+    max-width: 420px;
+}
+
+.introducao-formulario > p:last-child {
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 17px;
+}
+
+.formulario-feedback {
+    display: grid;
+    gap: 20px;
+    padding: clamp(25px, 4vw, 48px);
+    border: 1px solid var(--line);
+    background: var(--soft);
+}
+
+.linha-formulario {
+    display: grid;
+    gap: 8px;
+}
+
+.linha-formulario label,
+.linha-caixa-selecao {
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.linha-formulario input,
+.linha-formulario select,
+.linha-formulario textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 0;
+    padding: 13px 14px;
+    background: var(--paper);
+    color: var(--ink);
+    font: 14px 'DM Sans', sans-serif;
+}
+
+.linha-formulario textarea {
+    resize: vertical;
+}
+
+.linha-formulario input:focus,
+.linha-formulario select:focus,
+.linha-formulario textarea:focus {
+    outline: 2px solid var(--wine);
+    outline-offset: 2px;
+}
+
+.linha-caixa-selecao {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-weight: 400;
+    line-height: 1.45;
+}
+
+.linha-caixa-selecao input {
+    accent-color: var(--wine);
+    margin-top: 3px;
+}
+
+.status-formulario {
+    display: none;
+    margin: -4px 0 0;
+    color: #176b38;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-formulario.visivel {
+    display: block;
+}
+
+.tema-escuro .linha-formulario input,
+.tema-escuro .linha-formulario select,
+.tema-escuro .linha-formulario textarea {
+    background: #25161b;
+}
+
+.tema-escuro .status-formulario {
+    color: #9fdfa9;
+}
+
+.navegacao-principal a:hover,
+.link-texto:hover,
+.referencias a:hover {
+    color: var(--wine);
+}
+
+
+/* =========================================================
+   AÇÕES DO HEADER
+   ========================================================= */
+
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.botao-icone,
+.botao-menu {
+    width: 35px;
+    height: 35px;
+
+    border: 1px solid var(--line);
+
+    color: var(--wine);
+    background: transparent;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 20px;
+
+    transition:
+        background 0.2s ease,
+        transform 0.16s ease;
+}
+
+.botao-icone:hover {
+    background: var(--soft);
+}
+
+.botao-icone:active,
+.botao:active {
+    transform: scale(0.97);
+}
+
+.botao-menu { display: none !important; }
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+/* ===== PÁGINA: INÍCIO (index.html) ===== */
+.secao-destaque {
+    min-height: calc(100vh - 78px);
+
+    padding:
+        clamp(56px, 10vh, 120px)
+        clamp(20px, 8vw, 128px)
+        50px;
+
+    position: relative;
+
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(360px, 0.88fr);
+
+    gap: clamp(30px, 8vw, 150px);
+
+    align-items: center;
+
+    background: var(--cream);
+
+    overflow: hidden;
+}
+
+.secao-destaque::before {
+    content: "";
+
+    position: absolute;
+
+    width: 480px;
+    height: 480px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 250, 244, 0.23);
+
+    right: -140px;
+    top: -160px;
+}
+
+.texto-destaque {
+    position: relative;
+    z-index: 1;
+
+    max-width: 670px;
+}
+
+
+/* =========================================================
+   TIPOGRAFIA / MARCADORES
+   ========================================================= */
+
+.sobretitulo,
+.marcador-secao,
+.rotulo,
+.rotulo-arte-destaque,
+.indice-destaque,
+.progresso-quiz + small {
+    font: 10px 'DM Mono', monospace;
+
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+
+    color: var(--wine);
+}
+
+.sobretitulo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    margin: 0 0 30px;
+}
+
+.linha-sobretitulo {
+    width: 36px;
+    height: 1px;
+
+    background: var(--wine);
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+h1,
+h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+
+    letter-spacing: -0.045em;
+}
+
+h1 {
+    font-size: clamp(48px, 6.4vw, 94px);
+    line-height: 0.98;
+
+    max-width: 760px;
+
+    margin-bottom: 30px;
+}
+
+h1 em,
+h2 em {
+    color: var(--wine);
+    font-style: normal;
+}
+
+h1 em {
+    display: block;
+}
+
+
+/* =========================================================
+   HERO — CONTEÚDO
+   ========================================================= */
+
+.texto-introdutorio {
+    max-width: 490px;
+
+    font-size: clamp(17px, 1.5vw, 20px);
+    line-height: 1.55;
+
+    color: #5c444a;
+}
+
+.acoes-destaque {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+
+    margin-top: 37px;
+}
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+
+    border: 0;
+
+    padding: 14px 20px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition:
+        transform 0.16s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.botao-principal {
+    color: var(--cream);
+    background: var(--wine);
+}
+
+.botao-principal:hover {
+    background: #68142e;
+}
+
+.link-texto {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: var(--wine);
+}
+
+.nota-destaque {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    max-width: 270px;
+
+    margin-top: 64px;
+
+    font: 10px/1.5 'DM Mono', monospace;
+
+    color: #765e63;
+}
+
+.nota-destaque span:first-child {
+    color: var(--wine);
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   HERO — ARTE
+   ========================================================= */
+
+.envoltorio-arte-destaque {
+    position: relative;
+
+    max-width: 640px;
+    width: 100%;
+
+    justify-self: end;
+}
+
+.arte-destaque {
+    width: 100%;
+    display: block;
+
+    mix-blend-mode: multiply;
+}
+
+.rotulo-arte-destaque {
+    position: absolute;
+
+    top: -22px;
+    left: 25px;
+
+    z-index: 2;
+
+    line-height: 1.6;
+}
+
+.rotulo-arte-destaque span {
+    color: #8d6c6a;
+    font-size: 8px;
+}
+
+.indice-destaque {
+    position: absolute;
+
+    right: clamp(20px, 4vw, 64px);
+    bottom: 36px;
+
+    color: #9d7773;
+}
+
+.selo-nexo {
+    position: absolute;
+
+    right: clamp(20px, 4vw, 62px);
+    top: 32px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--wine);
+
+    font: 9px/1.35 'DM Mono', monospace;
+
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.selo-nexo::before {
+    content: "";
+
+    position: absolute;
+
+    width: 86px;
+    height: 1px;
+
+    background: var(--wine);
+
+    left: -100px;
+    top: 12px;
+
+    opacity: 0.4;
+}
+
+
+/* =========================================================
+   SEÇÕES GERAIS
+   ========================================================= */
+
+.envoltorio-secao {
+    max-width: 1500px;
+
+    margin: auto;
+
+    padding:
+        clamp(80px, 12vw, 150px)
+        clamp(20px, 8vw, 128px);
+}
+
+.marcador-secao {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 45px;
+
+    color: var(--wine);
+}
+
+.marcador-no {
+    width: 7px;
+    height: 7px;
+
+    border: 1px solid currentColor;
+    border-radius: 50%;
+
+    display: inline-block;
+
+    position: relative;
+}
+
+.marcador-no::after {
+    content: "";
+
+    width: 24px;
+    height: 1px;
+
+    background: currentColor;
+
+    position: absolute;
+
+    left: 9px;
+    top: 2px;
+
+    opacity: 0.5;
+}
+
+.marcador-secao.claro {
+    color: var(--cream);
+    opacity: 0.78;
+}
+
+
+/* =========================================================
+   INTRODUÇÃO
+   ========================================================= */
+
+/* ===== FIM: ESTILOS PRINCIPAIS DA PÁGINA INICIAL ===== */
+/* ===== PÁGINA: ENTENDA A IA (entenda.html) ===== */
+.grade-introducao,
+.secao-mapa {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: clamp(35px, 10vw, 180px);
+}
+
+h2 {
+    font-size: clamp(42px, 5.5vw, 78px);
+    line-height: 1.02;
+
+    margin-bottom: 25px;
+}
+
+h2 span {
+    color: var(--wine);
+}
+
+.rotulo {
+    margin-bottom: 19px;
+}
+
+.texto-introducao {
+    max-width: 510px;
+
+    padding-top: 15px;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: var(--muted);
+}
+
+.texto-introducao p {
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   MAPA
+   ========================================================= */
+
+.secao-mapa {
+    align-items: center;
+    padding-top: 40px;
+}
+
+.texto-mapa {
+    max-width: 500px;
+}
+
+.texto-mapa > p {
+    max-width: 430px;
+
+    font-size: 17px;
+    line-height: 1.65;
+
+    color: var(--muted);
+}
+
+.arte-mapa img {
+    display: block;
+    width: 100%;
+
+    mix-blend-mode: multiply;
+}
+
+/* =========================================================
+   ALINHAMENTO DOS 4 BLOCOS (CORRIGIDO)
+   ========================================================= */
+
+.estatisticas-mapa {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+
+    margin-top: 24px;
+    padding: 0;
+    border: 0;
+
+    width: 100%;
+}
+
+.estatisticas-mapa div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 8px;
+    text-align: center;
+
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+}
+
+.estatisticas-mapa strong {
+    display: block;
+    font: bold 20px Arial, sans-serif;
+    color: var(--titulo);
+    line-height: 1.2;
+    margin-bottom: 3px;
+}
+
+.estatisticas-mapa span {
+    display: block;
+    font: 11px Arial, sans-serif;
+    color: var(--texto);
+    text-transform: none;
+    letter-spacing: 0;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   PRINCÍPIOS
+   ========================================================= */
+
+/* ===== FIM: INTRODUÇÃO E POSSIBILIDADES (ENTENDA) ===== */
+/* ===== PÁGINA: CUIDADOS (cuidados.html) ===== */
+.secao-principios {
+    position: relative;
+
+    background: var(--wine);
+    color: var(--cream);
+
+    overflow: hidden;
+}
+
+.secao-principios::after {
+    content: none;
+
+    position: absolute;
+
+    right: 4%;
+    top: -100px;
+
+    font: 600 500px/0.8 'Fraunces', serif;
+
+    color: rgba(254, 227, 197, 0.04);
+}
+
+.interior-principios {
+    position: relative;
+    z-index: 1;
+
+    display: grid;
+
+    grid-template-columns:
+        0.78fr
+        1.22fr;
+
+    gap: clamp(35px, 10vw, 160px);
+}
+
+.cabecalho-principios {
+    max-width: 390px;
+}
+
+.cabecalho-principios h2 {
+    margin-bottom: 24px;
+}
+
+.cabecalho-principios p {
+    color: #e8c5b1;
+    line-height: 1.65;
+}
+
+.lista-principios {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    align-items: end;
+}
+
+.cartao-principio {
+    min-height: 245px;
+
+    border-top: 1px solid rgba(254, 227, 197, 0.4);
+
+    padding: 19px 5px 0;
+}
+
+.topo-principio {
+    display: flex;
+    justify-content: space-between;
+
+    color: #f3cdb8;
+}
+
+.topo-principio span {
+    font: 11px 'DM Mono', monospace;
+}
+
+.cartao-principio h3 {
+    font: 500 28px 'Fraunces', serif;
+
+    margin: 58px 0 14px;
+}
+
+.cartao-principio p {
+    color: #e8c5b1;
+
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   ESTUDO
+   ========================================================= */
+
+/* ===== FIM: PRINCÍPIOS DE CUIDADOS ===== */
+/* ===== PÁGINA: MÉTODO DE ESTUDO (entenda.html) ===== */
+.secao-estudo {
+    position: relative;
+
+    background: var(--paper);
+}
+
+.nota-lateral-secao {
+    position: absolute;
+
+    right: clamp(20px, 8vw, 128px);
+    top: clamp(85px, 12vw, 150px);
+
+    writing-mode: vertical-rl;
+
+    font: 9px 'DM Mono', monospace;
+
+    color: #a17b75;
+
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cabecalho-estudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 40px;
+
+    margin-bottom: 66px;
+}
+
+.cabecalho-estudo h2 {
+    margin: 0;
+}
+
+.cabecalho-estudo p {
+    max-width: 360px;
+
+    margin: 0;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+.colunas-estudo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+.colunas-estudo article {
+    padding: 26px 35px 0 0;
+
+    border-right: 1px solid var(--line);
+
+    margin-right: 35px;
+}
+
+.colunas-estudo article:last-child {
+    border: 0;
+    margin: 0;
+}
+
+.colunas-estudo article:nth-child(2) {
+    transform: translateY(28px);
+}
+
+.colunas-estudo article:nth-child(3) {
+    transform: translateY(7px);
+}
+
+.numero-estudo {
+    width: 35px;
+    height: 35px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--wine);
+    border-radius: 50%;
+
+    color: var(--wine);
+
+    font: 12px 'DM Mono', monospace;
+}
+
+.colunas-estudo h3 {
+    font: 500 25px 'Fraunces', serif;
+
+    margin: 35px 0 12px;
+}
+
+.colunas-estudo p {
+    color: var(--muted);
+
+    font-size: 15px;
+    line-height: 1.62;
+}
+
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
+
+/* ===== FIM: MÉTODO DE ESTUDO ===== */
+/* ===== PÁGINA: QUIZ (quiz.html) ===== */
+.secao-quiz {
+    display: grid;
+
+    grid-template-columns:
+        0.72fr
+        1.28fr;
+
+    gap: clamp(35px, 9vw, 130px);
+
+    max-width: none;
+
+    background: var(--soft);
+}
+
+.introducao-quiz {
+    max-width: 380px;
+}
+
+.introducao-quiz h2 {
+    margin-bottom: 20px;
+}
+
+.introducao-quiz > p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.progresso-quiz {
+    width: 100%;
+    height: 2px;
+
+    margin-top: 55px;
+
+    background: #e1c7bb;
+}
+
+.progresso-quiz span {
+    display: block;
+
+    height: 100%;
+
+    background: var(--wine);
+
+    transition: width 0.25s ease;
+}
+
+.progresso-quiz + small {
+    display: block;
+
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   QUIZ — CARD
+   ========================================================= */
+
+.cartao-quiz {
+    min-height: 390px;
+
+    padding: clamp(28px, 5vw, 68px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background: var(--wine);
+    color: var(--cream);
+}
+
+.pergunta-quiz {
+    max-width: 670px;
+
+    font:
+        500 clamp(28px, 3.2vw, 46px) / 1.08
+        'Fraunces',
+        serif;
+
+    letter-spacing: -0.03em;
+}
+
+.opcoes-quiz {
+    display: grid;
+    gap: 9px;
+
+    max-width: 680px;
+
+    margin-top: 25px;
+}
+
+.opcao-quiz {
+    border: 1px solid rgba(254, 227, 197, 0.37);
+
+    background: transparent;
+    color: var(--cream);
+
+    padding: 14px 16px;
+
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.opcao-quiz:hover {
+    background: rgba(254, 227, 197, 0.1);
+}
+
+.opcao-quiz span {
+    width: 24px;
+    height: 24px;
+
+    flex: 0 0 auto;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(254, 227, 197, 0.6);
+    border-radius: 50%;
+
+    font: 10px 'DM Mono', monospace;
+}
+
+.opcao-quiz.correta {
+    border-color: #077507;
+    background: rgba(200, 226, 184, 0.13);
+}
+
+.opcao-quiz.errada {
+    border-color: #ff0000;
+    background: rgba(244, 164, 164, 0.1);
+}
+
+.feedback-quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+
+    margin-top: 22px;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #f5d5c4;
+}
+
+.feedback-quiz strong {
+    color: var(--cream);
+}
+
+.link-claro {
+    align-self: flex-start;
+
+    margin-top: 8px;
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--cream);
+}
+
+.resultado-quiz h3 {
+    max-width: 500px;
+
+    margin: 13px 0 15px;
+
+    font:
+        500 clamp(34px, 4vw, 57px) / 1
+        'Fraunces',
+        serif;
+}
+
+.resultado-quiz > p:not(.rotulo) {
+    max-width: 500px;
+
+    color: #f5d5c4;
+
+    line-height: 1.6;
+}
+
+.resultado-quiz .botao {
+    margin-top: 17px;
+}
+
+
+/* =========================================================
+   ENCERRAMENTO
+   ========================================================= */
+
+/* ===== FIM: QUIZ ===== */
+/* ===== PÁGINA: REFERÊNCIAS (referencias.html) ===== */
+.secao-encerramento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: flex-end;
+    position: relative;
+}
+
+.linha-encerramento {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: var(--line);
+}
+
+.conteudo-encerramento {
+    max-width: 620px;
+
+    padding-top: 45px;
+}
+
+.selo-encerramento {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 28px;
+
+    color: var(--wine);
+
+    font: 9px/1.3 'DM Mono', monospace;
+
+    letter-spacing: 0.12em;
+}
+
+.icone-encerramento {
+    display: block;
+
+    margin-bottom: 30px;
+
+    color: var(--wine);
+
+    font-size: 27px;
+}
+
+.conteudo-encerramento h2 {
+    margin-bottom: 22px;
+}
+
+.conteudo-encerramento > p:not(.rotulo) {
+    max-width: 540px;
+
+    margin-bottom: 30px;
+
+    color: var(--muted);
+
+    line-height: 1.65;
+    font-size: 17px;
+}
+
+/* =========================================================
+   COLUNA DIREITA DA SEÇÃO FINAL (ILUSTRAÇÃO + REFERÊNCIAS)
+   ========================================================= */
+
+.lateral-encerramento {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.arte-encerramento {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.arte-encerramento img {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================================================
+   REFERÊNCIAS
+   ========================================================= */
+
+.referencias {
+    border-left: 1px solid var(--line);
+
+    padding: 0 0 8px 35px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.referencias .rotulo {
+    margin: 0 0 12px;
+}
+
+.referencias a {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid var(--line);
+
+    color: var(--wine);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+/* ===== FIM: PÁGINA DE REFERÊNCIAS ===== */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        40px
+        clamp(20px, 5vw, 76px);
+
+    background: var(--wine);
+    color: var(--cream);
+
+    font-size: 14px;
+}
+
+.rodape > div {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--cream);
+}
+
+.rodape > div span:last-child {
+    margin-left: 8px;
+    color: var(--soft);
+}
+
+.rodape > a {
+    color: var(--soft);
+    font-weight: 600;
+}
+
+.rodape > a:hover {
+    color: #fff;
+}
+
+
+/* =========================================================
+   TEMA ESCURO
+   ========================================================= */
+
+.tema-escuro {
+    --paper: #25161b;
+    --ink: #f8e9dc;
+    --muted: #d1b3a7;
+    --line: #513038;
+    --soft: #3a202a;
+
+    background: #25161b !important;
+    color: #f8e9dc !important;
+}
+
+.tema-escuro .cabecalho,
+.tema-escuro .secao-estudo {
+    background: #25161b;
+}
+
+.tema-escuro .secao-introducao,
+.tema-escuro .secao-encerramento {
+    background: #25161b;
+}
+
+.tema-escuro .secao-destaque {
+    background: #4a1d2d;
+}
+
+.tema-escuro .texto-introdutorio,
+.tema-escuro .texto-introducao,
+.tema-escuro .texto-mapa > p,
+.tema-escuro .cabecalho-estudo p,
+.tema-escuro .colunas-estudo p {
+    color: #d1b3a7;
+}
+
+.tema-escuro .arte-destaque,
+.tema-escuro .arte-mapa img {
+    mix-blend-mode: screen;
+    opacity: 0.87;
+}
+
+.tema-escuro .selo-nexo,
+.tema-escuro .selo-encerramento {
+    color: var(--cream);
+}
+
+.tema-escuro .selo-nexo::before {
+    background: var(--cream);
+}
+
+
+/* =========================================================
+   UTILITÁRIOS
+   ========================================================= */
+
+.texto-grande p,
+.texto-grande a,
+.texto-grande li,
+.texto-grande span,
+.texto-grande label,
+.texto-grande .texto-introdutorio,
+.texto-grande .texto-introducao,
+.texto-grande .texto-mapa > p,
+.texto-grande .colunas-estudo p,
+.texto-grande .introducao-quiz > p {
+    font-size: 110% !important;
+}
+
+.texto-grande h1 {
+    font-size: clamp(52px, 7vw, 103px) !important;
+}
+
+.texto-grande h2 {
+    font-size: clamp(46px, 6vw, 85px) !important;
+}
+
+.texto-grande h3 {
+    font-size: 110% !important;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .navegacao-principal {
+        gap: 15px;
+        margin-right: 15px;
+    }
+
+    .secao-destaque {
+        grid-template-columns: 1fr;
+    }
+
+    .envoltorio-arte-destaque {
+        justify-self: stretch;
+
+        max-width: 700px;
+
+        margin: 10px auto 0;
+    }
+
+    .indice-destaque {
+        bottom: 20px;
+    }
+
+    .interior-principios,
+    .secao-quiz {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-principios {
+        margin-top: 20px;
+    }
+
+    .secao-encerramento {
+        gap: 45px;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .selo-nexo {
+        top: 18px;
+        right: 20px;
+
+        transform: scale(0.82);
+        transform-origin: right top;
+    }
+
+    .nota-lateral-secao {
+        display: none;
+    }
+
+    .colunas-estudo article:nth-child(2),
+    .colunas-estudo article:nth-child(3) {
+        transform: none;
+    }
+
+    .cabecalho {
+        height: 68px;
+    }
+
+    .navegacao-principal { display: flex; 
+
+        position: absolute;
+        transform: none;
+
+        top: 68px;
+        left: 0;
+        right: 0;
+
+        margin: 0;
+
+        padding: 22px 20px;
+
+        flex-direction: column;
+
+        background: var(--paper);
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .navegacao-principal.aberto {
+        display: flex;
+    }
+
+    
+
+    .acoes-cabecalho .botao-icone {
+        display: none;
+    }
+
+    .secao-destaque {
+        min-height: auto;
+
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .envoltorio-arte-destaque {
+        margin-top: 30px;
+    }
+
+    .rotulo-arte-destaque {
+        top: -10px;
+        left: 8px;
+    }
+
+    .grade-introducao,
+    .secao-mapa,
+    .colunas-estudo,
+    .secao-encerramento {
+        grid-template-columns: 1fr;
+    }
+
+    .grade-introducao {
+        gap: 15px;
+    }
+
+    .secao-mapa {
+        gap: 28px;
+    }
+
+    .estatisticas-mapa {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .lista-principios {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .cartao-principio {
+        min-height: 0;
+    }
+
+    .cartao-principio h3 {
+        margin-top: 30px;
+    }
+
+    .cabecalho-estudo {
+        display: block;
+
+        margin-bottom: 40px;
+    }
+
+    .cabecalho-estudo p {
+        margin-top: 20px;
+    }
+
+    .colunas-estudo article {
+        padding: 25px 0 30px;
+
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+
+        margin: 0;
+    }
+
+    .secao-quiz {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .cartao-quiz {
+        padding: 30px 22px;
+    }
+
+    .referencias {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+
+        padding: 28px 0 0;
+    }
+
+    .rodape {
+        align-items: flex-start;
+
+        gap: 25px;
+
+        flex-wrap: wrap;
+    }
+
+    .rodape > div {
+        flex-wrap: wrap;
+    }
+
+    .rodape > div span:last-child {
+        width: 100%;
+
+        margin: 0 0 0 39px;
+    }
+
+    .rodape p {
+        max-width: 230px;
+
+        margin: 0;
+
+        line-height: 1.5;
+    }
+}
+
+/* =========================================================
+   LEITURA EM TELAS GRANDES — APRESENTAÇÃO COM PROJETOR
+   ========================================================= */
+@media (min-width: 701px) {
+    body {
+        font-size: 19px;
+    }
+
+    .cabecalho {
+        min-height: 86px;
+        height: auto;
+        padding-inline: clamp(24px, 4vw, 64px);
+    }
+
+    .marca {
+        font-size: 27px;
+    }
+
+    .navegacao-principal a {
+        font-size: clamp(14px, 1.1vw, 17px);
+        padding: 9px 12px;
+    }
+
+    .sobretitulo,
+    .marcador-secao,
+    .rotulo,
+    .rotulo-arte-destaque,
+    .indice-destaque {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: clamp(46px, 5vw, 68px);
+        line-height: 1.12;
+    }
+
+    h2 {
+        font-size: clamp(36px, 4vw, 52px);
+        line-height: 1.15;
+    }
+
+    .secao-estudo .cabecalho-estudo h2 {
+        font-size: clamp(38px, 4vw, 50px);
+    }
+
+    .texto-introdutorio,
+    .texto-introducao,
+    .texto-mapa > p,
+    .cabecalho-estudo p,
+    .colunas-estudo p,
+    .cabecalho-principios p,
+    .introducao-quiz > p,
+    .introducao-formulario > p:last-child,
+    .conteudo-encerramento p,
+    .texto-destaque-ferramentas > p,
+    .texto-cartao-ferramenta > p:not(.dica-ferramenta),
+    .lembrete-ferramentas > div:last-child > p:last-child {
+        font-size: clamp(18px, 1.35vw, 22px);
+        line-height: 1.6;
+    }
+
+    .cartao-principio h3,
+    .colunas-estudo h3,
+    .texto-cartao-ferramenta h3 {
+        font-size: clamp(25px, 2vw, 31px);
+    }
+
+    .topo-principio span,
+    .tipo-ferramenta,
+    .nota-destaque,
+    .nota-destaque-ferramentas strong,
+    .nota-destaque-ferramentas p,
+    .estatisticas-mapa span {
+        font-size: 14px;
+    }
+
+    .estatisticas-mapa strong {
+        font-size: 25px;
+    }
+
+    .botao,
+    .link-texto,
+    .opcao-quiz,
+    .linha-formulario input,
+    .linha-formulario select,
+    .linha-formulario textarea {
+        font-size: 17px;
+    }
+
+    .linha-formulario label,
+    .linha-caixa-selecao,
+    .status-formulario,
+    .dica-ferramenta,
+    .feedback-quiz {
+        font-size: 16px;
+    }
+
+    .pergunta-quiz {
+        font-size: clamp(30px, 3vw, 42px);
+        line-height: 1.2;
+    }
+
+    .rodape {
+        font-size: 15px;
+    }
+
+    .acoes-ferramenta-introducao span {
+        font-size: 13px;
+    }
+}
+
+/* Controle de alternância para aumentar ou diminuir a fonte. */
+.botao-tamanho-texto {
+    width: 38px;
+    padding: 0;
+    font-size: 12px !important;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+}
+
+@media (max-width: 650px) {
+    .acoes-cabecalho .botao-tamanho-texto {
+        display: grid;
+    }
+}
+
+/* =========================================================
+   FERRAMENTAS DE IA
+   ========================================================= */
+
+/* ===== PÁGINA: FERRAMENTAS DE IA (ferramentas.html) ===== */
+.principal-ferramentas {
+    background: var(--paper);
+}
+
+.destaque-ferramentas {
+    min-height: 440px;
+    padding-top: clamp(70px, 10vw, 130px);
+    padding-bottom: clamp(70px, 10vw, 130px);
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+    align-items: end;
+    gap: clamp(35px, 8vw, 120px);
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+}
+
+.texto-destaque-ferramentas {
+    max-width: 800px;
+}
+
+.destaque-ferramentas h1 {
+    max-width: 760px;
+    margin: 25px 0 28px;
+}
+
+.destaque-ferramentas h1 span,
+.cabecalho-lista-ferramentas h2 span,
+.lembrete-ferramentas h2 span {
+    color: var(--wine);
+}
+
+.texto-destaque-ferramentas > p {
+    max-width: 690px;
+    margin: 0;
+    color: var(--muted);
+    font-size: clamp(17px, 2vw, 21px);
+    line-height: 1.6;
+}
+
+.nota-destaque-ferramentas {
+    align-self: end;
+    padding: 25px;
+    border-left: 1px solid var(--wine);
+    color: var(--ink);
+}
+
+.marcador-nota-ferramentas {
+    display: block;
+    margin-bottom: 24px;
+    color: var(--wine);
+    font-size: 28px;
+}
+
+.nota-destaque-ferramentas strong {
+    display: block;
+    font: 12px 'DM Mono', monospace;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.nota-destaque-ferramentas p {
+    margin: 10px 0 0;
+    max-width: 240px;
+    line-height: 1.55;
+}
+
+.lista-ferramentas {
+    padding-top: clamp(65px, 9vw, 115px);
+    padding-bottom: clamp(65px, 9vw, 115px);
+}
+
+.cabecalho-lista-ferramentas {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 44px;
+}
+
+.cabecalho-lista-ferramentas .rotulo {
+    margin: 0;
+}
+
+.cabecalho-lista-ferramentas h2 {
+    margin: 0;
+    max-width: 540px;
+}
+
+.grade-ferramentas {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.cartao-ferramenta {
+    display: grid;
+    grid-template-columns: 82px minmax(0, 1fr);
+    gap: 24px;
+    min-height: 255px;
+    padding: 28px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.cartao-ferramenta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 28px rgba(61, 7, 23, .1);
+}
+
+.envoltorio-logo-ferramenta {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--cream);
+}
+
+.envoltorio-logo-ferramenta img {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.texto-cartao-ferramenta h3 {
+    margin: 7px 0 9px;
+    color: var(--wine);
+    font-size: 25px;
+}
+
+.tipo-ferramenta {
+    color: var(--muted);
+    font: 10px 'DM Mono', monospace;
+    letter-spacing: .1em;
+}
+
+.texto-cartao-ferramenta > p:not(.dica-ferramenta) {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.dica-ferramenta {
+    margin: 16px 0 0;
+    padding-top: 13px;
+    border-top: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.dica-ferramenta strong {
+    color: var(--wine);
+}
+
+.lembrete-ferramentas {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+    gap: 30px;
+    margin-bottom: 90px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+}
+
+.icone-lembrete-ferramentas {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: var(--wine);
+    color: var(--cream);
+    font: 26px 'DM Mono', monospace;
+}
+
+.lembrete-ferramentas .rotulo {
+    margin: 0 0 14px;
+}
+
+.lembrete-ferramentas h2 {
+    margin: 0 0 18px;
+}
+
+.lembrete-ferramentas > div:last-child > p:last-child {
+    max-width: 700px;
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.tema-escuro .destaque-ferramentas {
+    background: #4a1d2d;
+}
+
+.tema-escuro .texto-destaque-ferramentas > p,
+.tema-escuro .texto-cartao-ferramenta > p:not(.dica-ferramenta),
+.tema-escuro .lembrete-ferramentas > div:last-child > p:last-child {
+    color: var(--muted);
+}
+
+.tema-escuro .cartao-ferramenta,
+.tema-escuro .lembrete-ferramentas {
+    background: var(--paper);
+}
+
+.tema-escuro .envoltorio-logo-ferramenta {
+    background: #4a1d2d;
+}
+
+@media (max-width: 900px) {
+    .destaque-ferramentas {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .nota-destaque-ferramentas {
+        max-width: 480px;
+    }
+}
+
+@media (max-width: 700px) {
+    .cabecalho-lista-ferramentas {
+        display: block;
+    }
+
+    .cabecalho-lista-ferramentas h2 {
+        margin-top: 18px;
+    }
+
+    .grade-ferramentas {
+        grid-template-columns: 1fr;
+    }
+
+    .cartao-ferramenta {
+        grid-template-columns: 64px minmax(0, 1fr);
+        gap: 17px;
+        padding: 22px;
+    }
+
+    .envoltorio-logo-ferramenta {
+        width: 58px;
+        height: 58px;
+    }
+
+    .envoltorio-logo-ferramenta img {
+        width: 31px;
+        height: 31px;
+    }
+
+    .lembrete-ferramentas {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-bottom: 55px;
+    }
+}
+
+
+/* ===== FIM: PÁGINA DE FERRAMENTAS DE IA ===== */
+
+/* =========================================================
+   ACESSIBILIDADE — REDUÇÃO DE MOVIMENTO
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/*
+   REDEFINIÇÕES VISUAIS DA PRIMEIRA VERSÃO
+   Este bloco está depois dos estilos-base porque ajusta aparência e espaçamento.
+   As variáveis oficiais da paleta são definidas novamente logo abaixo.
+*/
+:root {
+    --rosa: #ff8fab;
+    --rosa-claro: #fff0f4;
+    --borda: #e0aab8;
+    --vinho: #5c374c;
+    --titulo: #c44569;
+    --texto: #4a3038;
+    --fundo: #fff5f8;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+}
+
+/* Cabeçalho e navegação compartilhados. */
+.cabecalho {
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    height: 78px;
+    padding: 0 40px;
+    background: var(--rosa);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    border: 0;
+    justify-content: space-between;
+}
+
+.marca {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 9px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+    font-family: 'Alata', Arial, sans-serif;
+}
+
+.marca span {
+    font-weight: 400;
+}
+
+.imagem-marca {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.navegacao-principal {
+    position: static;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    transform: none;
+}
+
+.navegacao-principal a {
+    padding: 7px 11px;
+    color: #fff;
+    border-radius: 7px;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.navegacao-principal a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.acoes-cabecalho {
+    position: static;
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.botao-icone,
+.botao-menu {
+    width: 35px;
+    height: 35px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background: transparent;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 20px;
+}
+
+.botao-icone:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Estrutura e componentes reutilizados pelas páginas. */
+main {
+    max-width: 1100px;
+    padding: 35px 20px;
+}
+
+.envoltorio-secao {
+    padding: 35px 20px;
+}
+
+.secao-destaque {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    padding: 28px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sobretitulo,
+.marcador-secao,
+.rotulo {
+    color: var(--titulo);
+    font: bold 12px Arial, sans-serif;
+    letter-spacing: 0;
+}
+
+.linha-sobretitulo,
+.marcador-no {
+    width: 9px;
+    height: 9px;
+    background: var(--rosa);
+    border-radius: 50%;
+}
+
+h1 {
+    font: bold 36px/1.2 Arial, sans-serif;
+    color: var(--texto);
+    letter-spacing: 0;
+}
+
+h1 em,
+h2 span,
+h2 em {
+    color: var(--titulo);
+    font-style: normal;
+}
+
+h2 {
+    font: 400 29px/1.2 'Didact Gothic', Arial, sans-serif;
+    letter-spacing: 0;
+    color: var(--titulo);
+}
+
+h3 {
+    font: bold 20px Arial, sans-serif;
+    color: var(--vinho);
+}
+
+.texto-introdutorio,
+.texto-introducao,
+.texto-mapa > p,
+.cabecalho-estudo p,
+.colunas-estudo p {
+    font-size: 16px;
+    color: var(--texto);
+}
+
+.botao {
+    border-radius: 8px;
+    background: var(--vinho);
+    padding: 11px 16px;
+    font: bold 14px Arial, sans-serif;
+}
+
+.botao:hover {
+    background: var(--rosa);
+}
+
+.arte-destaque {
+    border-radius: 10px;
+    mix-blend-mode: normal;
+}
+
+.rotulo-arte-destaque {
+    position: static;
+    margin: 0 0 8px;
+    color: var(--titulo);
+    font: bold 11px Arial, sans-serif;
+}
+
+.indice-destaque,
+.selo-nexo,
+.nota-lateral-secao {
+    display: none;
+}
+
+.secao-introducao,
+.secao-mapa,
+.secao-estudo,
+.secao-formulario,
+.secao-encerramento {
+    background: transparent;
+}
+
+.grade-introducao,
+.secao-mapa,
+.secao-quiz,
+.layout-formulario,
+.secao-encerramento {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.grade-introducao > div,
+.texto-mapa,
+.introducao-quiz,
+.introducao-formulario,
+.conteudo-encerramento,
+.referencias {
+    padding: 24px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.arte-mapa img {
+    border-radius: 10px;
+    mix-blend-mode: normal;
+}
+
+/* Cartões da página de cuidados. */
+.secao-principios {
+    background: var(--vinho);
+}
+
+.interior-principios {
+    display: block;
+    padding: 35px 20px;
+}
+
+.cabecalho-principios {
+    max-width: none;
+}
+
+.cabecalho-principios h2,
+.cabecalho-principios .marcador-secao {
+    color: #fff;
+}
+
+.cabecalho-principios p {
+    color: #ffe5ec;
+}
+
+.lista-principios {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.cartao-principio {
+    min-height: 0;
+    padding: 20px;
+    background: #fff;
+    border: 0;
+    border-radius: 10px;
+}
+
+.topo-principio {
+    color: var(--titulo);
+}
+
+.cartao-principio h3 {
+    margin: 25px 0 10px;
+}
+
+/* Cartões de método de estudo. */
+.cabecalho-estudo {
+    display: block;
+    margin-bottom: 20px;
+}
+
+.colunas-estudo {
+    gap: 16px;
+}
+
+.colunas-estudo article,
+.colunas-estudo article:last-child {
+    margin: 0;
+    padding: 20px;
+    background: #fff;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: none;
+}
+
+.numero-estudo {
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: var(--rosa);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Cartão e alternativas do quiz. */
+.secao-quiz {
+    background: var(--rosa-claro);
+}
+
+.cartao-quiz {
+    min-height: 300px;
+    padding: 28px;
+    background: var(--vinho);
+    border-radius: 12px;
+}
+
+.pergunta-quiz {
+    font: bold 22px/1.35 Arial, sans-serif;
+    letter-spacing: 0;
+}
+
+.opcao-quiz {
+    font-family: Arial, sans-serif;
+}
+
+.resultado-quiz h3 {
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.opcao-quiz.correta {
+    border-color: #9ee493;
+    background: #3d7443;
+}
+
+.opcao-quiz.errada {
+    border-color: #ffb0b0;
+    background: #913f4a;
+}
+
+/* Formulário, referências e rodapé. */
+.formulario-feedback {
+    padding: 24px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.linha-formulario input,
+.linha-formulario select,
+.linha-formulario textarea {
+    border-color: var(--borda);
+    border-radius: 6px;
+}
+
+.linha-encerramento {
+    display: none;
+}
+
+.selo-encerramento {
+    color: var(--titulo);
+}
+
+.referencias {
+    border: 0;
+}
+
+.referencias a {
+    color: var(--titulo);
+}
+
+.rodape {
+    background: var(--vinho);
+    color: #fff;
+}
+
+.rodape a {
+    color: #fff;
+}
+
+/* Ajustes do tema escuro e telas menores nesta versão visual. */
+.tema-escuro {
+    --paper: #2c1d23;
+    --ink: #fbe7ed;
+    --muted: #f0cbd6;
+    --line: #966477;
+    --soft: #492e39;
+    background: #2c1d23 !important;
+}
+
+.tema-escuro .cabecalho {
+    background: #b63b63;
+}
+
+.tema-escuro .grade-introducao > div,
+.tema-escuro .texto-mapa,
+.tema-escuro .introducao-quiz,
+.tema-escuro .introducao-formulario,
+.tema-escuro .conteudo-encerramento,
+.tema-escuro .referencias,
+.tema-escuro .colunas-estudo article,
+.tema-escuro .formulario-feedback {
+    background: #3a2730;
+    color: #fbe7ed;
+}
+
+@media (max-width: 700px) {
+    .marca {
+        font-size: 26px;
+    }
+
+    .navegacao-principal.aberto {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .secao-destaque,
+    .grade-introducao,
+    .secao-mapa,
+    .secao-quiz,
+    .layout-formulario,
+    .secao-encerramento {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-principios,
+    .colunas-estudo {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+}
+
+/* Paleta principal extraída da logo do projeto */
+:root {
+  --wine: #7A0022;
+  --cream: #FDEFD2;
+  --ink: #3D0717;
+  --muted: #704555;
+  --paper: #FFFCF6;
+  --line: #E8C995;
+  --soft: #F8E4BC;
+  --rosa: #7A0022;
+  --rosa-claro: #FDEFD2;
+  --borda: #E8C995;
+  --vinho: #7A0022;
+  --titulo: #7A0022;
+  --texto: #3D0717;
+  --fundo: #FDEFD2;
+}
+body { background: var(--fundo); color: var(--texto); }
+.cabecalho, .tema-escuro .cabecalho { background: var(--vinho); }
+.navegacao-principal { background: transparent; }
+.rodape { background: var(--vinho); }
+.navegacao-principal a:hover, .botao:hover { background: rgba(255,255,255,0.15); }
+.botao { background: var(--vinho); }
+.secao-destaque, .grade-introducao > div, .texto-mapa, .introducao-quiz, .introducao-formulario, .conteudo-encerramento, .referencias, .colunas-estudo article, .formulario-feedback, .cartao-principio { background: var(--paper); }
+.estatisticas-mapa div { background: var(--cream); border-color: var(--line); }
+.secao-quiz { background: var(--cream); }
+.cartao-quiz { background: var(--wine); }
+input, select, textarea { border-color: var(--line); background: var(--paper); color: var(--texto); }
+.secao-principios { background: var(--wine); }
+
+.tema-escuro {
+  --wine: #8B1232;
+  --cream: #FDEFD2;
+  --ink: #FFF9ED;
+  --muted: #EACFA8;
+  --paper: #310712;
+  --line: #85445A;
+  --soft: #541024;
+  --rosa: #7A0022;
+  --rosa-claro: #541024;
+  --borda: #85445A;
+  --vinho: #8B1232;
+  --titulo: #FDEFD2;
+  --texto: #FFF9ED;
+  --fundo: #310712;
+  background: var(--fundo) !important;
+}
+
+.tema-escuro .secao-destaque, 
+.tema-escuro .grade-introducao > div, 
+.tema-escuro .texto-mapa, 
+.tema-escuro .introducao-quiz,
+.tema-escuro .introducao-formulario, 
+.tema-escuro .conteudo-encerramento, 
+.tema-escuro .referencias, 
+.tema-escuro .colunas-estudo article, 
+.tema-escuro .formulario-feedback, 
+.tema-escuro .cartao-principio {
+  background: var(--paper);
+  color: var(--texto);
+}
+
+/* Resultado do plano de revisão criado no navegador. */
+.resultado-plano {
+    display: none;
+    margin-top: 22px;
+}
+
+.resultado-plano.visivel {
+    display: block;
+}
+
+.cartao-plano {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--cream);
+    color: var(--ink);
+}
+
+.cartao-plano h3 {
+    margin: 8px 0 12px;
+    color: var(--wine);
+    font-size: 22px;
+}
+
+.cartao-plano p,
+.cartao-plano li {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.cartao-plano ol {
+    margin: 16px 0;
+    padding-left: 22px;
+}
+
+.cartao-plano .proximo-plano {
+    margin: 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--wine);
+}
+
+.tema-escuro .cartao-plano {
+    background: var(--soft);
+    color: var(--ink);
+}
+
+
+/* =========================================================
+   FOOTER (CORREÇÃO DE COR DO TEXTO)
+   ========================================================= */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 28px clamp(20px, 5vw, 76px);
+
+    border-top: 1px solid var(--line);
+    background: var(--vinho);
+
+    font-size: 12px;
+    color: var(--cream);
+}
+
+.rodape > div,
+.rodape > div span,
+.rodape > div span:last-child {
+    color: var(--cream);
+}
+
+.rodape > a {
+    color: var(--cream);
+}
+
+/* =========================================================
+   FLUXO VISUAL DO CARD DE CONTEXTO
+   ========================================================= */
+
+.cartao-introducao {
+    min-height: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Mantém o marcador da primeira seção alinhado ao conteúdo dos cartões. */
+.secao-introducao > .marcador-secao {
+    margin-left: 24px;
+}
+
+.nota-ferramenta-introducao {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+}
+
+.nota-ferramenta-introducao p {
+    margin: 0 0 14px;
+    color: var(--wine);
+    font: 600 15px/1.35 'DM Sans', Arial, sans-serif;
+}
+
+.acoes-ferramenta-introducao {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.acoes-ferramenta-introducao span {
+    padding: 11px 5px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--cream);
+    color: var(--wine);
+    font: 700 10px/1.2 'DM Sans', Arial, sans-serif;
+    letter-spacing: 0.03em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.secao-checklist {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: stretch;
+    gap: 32px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+}
+
+.cabecalho-checklist {
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper);
+    box-shadow: 0 4px 12px rgba(61, 7, 23, 0.08);
+}
+
+.cabecalho-checklist .marcador-secao {
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+.cabecalho-checklist h2 {
+    margin: 0 0 16px;
+    font-size: 34px;
+    line-height: 1.28;
+}
+
+.cabecalho-checklist > p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 19px;
+    line-height: 1.6;
+}
+
+.grade-checklist {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.cartao-checklist {
+    min-height: 176px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper);
+    box-shadow: 0 4px 12px rgba(61, 7, 23, 0.08);
+}
+
+.numero-checklist {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--wine);
+    color: var(--cream);
+    font: 700 11px 'DM Sans', Arial, sans-serif;
+}
+
+.cartao-checklist h3 {
+    margin: 16px 0 8px;
+    color: var(--wine);
+    font: 700 18px/1.2 'DM Sans', Arial, sans-serif;
+}
+
+.cartao-checklist p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.principal-cuidados {
+    margin-inline: auto;
+}
+
+.principal-quiz {
+    margin-inline: auto;
+}
+
+.principal-formulario {
+    margin-inline: auto;
+}
+
+.principal-referencias {
+    margin-inline: auto;
+}
+
+.principal-entenda {
+    margin-inline: auto;
+}
+
+.principal-inicio {
+    margin-inline: auto;
+}
+
+body,
+body * {
+    font-family: 'Quicksand', Arial, sans-serif;
+}
+
+.marca span {
+    font-family: 'Alata', Arial, sans-serif;
+}
+
+body h2,
+body h2 span,
+body h2 em {
+    font-family: 'Didact Gothic', Arial, sans-serif;
+}
+
+.cabecalho-principios {
+    max-width: 660px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.cabecalho-principios .marcador-secao {
+    justify-content: center;
+}
+
+.cabecalho-principios p {
+    margin-inline: auto;
+}
+
+.etapas-introducao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 42px;
+}
+
+.etapa-introducao {
+    width: 82px;
+    min-height: 54px;
+    padding: 9px 6px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--wine);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--wine);
+    text-align: center;
+}
+
+.etapa-introducao strong {
+    margin-bottom: 5px;
+    font: 700 16px 'DM Mono', monospace;
+    line-height: 1;
+}
+
+.etapa-introducao span {
+    font: 9px 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+}
+
+.seta-introducao {
+    color: var(--muted);
+    font-size: 19px;
+    line-height: 1;
+}
+
+@media (max-width: 700px) {
+    .secao-checklist {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .cartao-introducao {
+        min-height: 0;
+        height: auto;
+    }
+
+    .etapas-introducao {
+        gap: 4px;
+    }
+
+    .etapa-introducao {
+        width: 68px;
+        min-height: 50px;
+    }
+
+    .etapa-introducao strong {
+        font-size: 14px;
+    }
+
+    .etapa-introducao span {
+        font-size: 8px;
+    }
+
+    .seta-introducao {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .grade-checklist {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   CORREÇÃO — IMAGENS NO DARK MODE
+   ========================================================= */
+
+.tema-escuro img {
+    opacity: 1;
+    filter: none;
+    mix-blend-mode: normal;
+}
+
+/* Mantém as imagens visíveis no modo escuro */
+.tema-escuro .arte-destaque,
+.tema-escuro .arte-mapa img,
+.tema-escuro .arte-encerramento img,
+.tema-escuro .imagem-marca,
+.tema-escuro .imagem-selo {
+    opacity: 1;
+    filter: none;
+    mix-blend-mode: normal;
+}   
+
+
+/* =========================================================
+   CORREÇÃO DOS QUADRADOS DA SEÇÃO "POSSIBILIDADES"
+   ========================================================= */
+
+.tema-escuro .estatisticas-mapa > div {
+    background: #FDEFD2 !important;
+    color: #4A1D2D !important;
+    border: 1px solid #FDEFD2 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.tema-escuro .estatisticas-mapa > div strong,
+.tema-escuro .estatisticas-mapa > div span {
+    color: #4A1D2D !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Alinha os 3 cards da seção "Na prática" */
+.colunas-estudo {
+    gap: 16px;
+    align-items: stretch;
+    border-top: 0;
+}
+
+.colunas-estudo article,
+.colunas-estudo article:nth-child(2),
+.colunas-estudo article:nth-child(3),
+.colunas-estudo article:last-child {
+    transform: none;
+    margin: 0;
+    padding: 20px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(61, 7, 23, 0.08);
+}
+
+/* Títulos com a mesma altura, para o texto começar alinhado */
+.colunas-estudo h3 {
+    min-height: 2.4em;
+    margin: 20px 0 10px;
+}
+
+/* =========================================================
+   CORREÇÃO — TEXTO DOS CARDS "O QUE NÃO PODE"
+   ========================================================= */
+
+.cartao-principio {
+    color: var(--texto);
+}
+
+.cartao-principio h3 {
+    color: var(--wine);
+}
+
+.cartao-principio p {
+    color: var(--muted);
+}
+
+.cartao-principio p {
+    color: #5A2638;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.cartao-principio p {
+    color: #461B2A;
+    font-size: 14px;
+    line-height: 1.55;
+}
+/* ===== PÁGINA: PESQUISAS (pesquisas.html) ===== */
+.secao-pesquisas { background: var(--paper); border-radius: 20px; box-shadow: 0 6px 24px rgba(61,7,23,0.08); max-width: 1000px; margin: 40px auto; }
+.lista-pesquisa { display: flex; flex-direction: column; gap: 24px; max-width: 780px; margin: 0 auto; width: 100%; }
+.item-pesquisa { width: 100%; text-align: center; background: white; border: 1px solid var(--line); border-radius: 16px; padding: 32px 36px; box-shadow: 0 4px 14px rgba(61,7,23,0.07); box-sizing: border-box; }
+.item-pesquisa h3 { font: 500 22px 'Fraunces', serif; margin-bottom: 12px; color: var(--wine); }
+.item-pesquisa p { line-height: 1.65; color: var(--muted); margin-bottom: 8px; }
+.item-pesquisa p:last-child { margin-bottom: 0; }
+.item-pesquisa strong { color: var(--ink); }
+.referencias-pesquisa { max-width: 780px; margin: 60px auto 0; padding-top: 40px; border-top: 1px solid var(--line); text-align: center; }
+.referencias-pesquisa h2 { font-size: 28px; margin-bottom: 25px; }
+.referencias-pesquisa p { font-size: 14px; line-height: 1.6; color: var(--muted); margin-bottom: 12px; }
+.referencias-pesquisa a { color: var(--wine); text-decoration: underline; }
+
+/* =========================================================
+   AJUSTES FINAIS — LAYOUT, PESQUISAS E ACESSIBILIDADE
+   As regras abaixo refinam estilos definidos anteriormente; a ordem importa.
+   ========================================================= */
+
+/* A home usa a largura da janela para que o painel principal tenha presença. */
+.principal-inicio {
+    width: min(1400px, 100%);
+    max-width: none;
+    padding: 30px clamp(20px, 4vw, 56px) 0;
+}
+
+.principal-inicio .secao-destaque {
+    min-height: min(620px, calc(100vh - 150px));
+    padding: clamp(42px, 6vw, 86px);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(61, 7, 23, 0.12);
+}
+
+.principal-inicio .texto-destaque {
+    max-width: 650px;
+}
+
+.principal-inicio .envoltorio-arte-destaque {
+    max-width: 620px;
+}
+
+/* Os cartões de atitudes ficam mais suaves e destacados do fundo vinho. */
+.cartao-principio {
+    border: 1px solid rgba(122, 0, 34, 0.12);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(45, 0, 16, 0.12);
+}
+
+/* Arredonda o painel vinho inteiro da página de cuidados. */
+.principal-cuidados .secao-principios {
+    width: min(1240px, calc(100% - 40px));
+    margin: 34px auto;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+/* Pesquisa: título isolado e perguntas em zigue-zague esquerda/direita. */
+.secao-pesquisas {
+    width: min(1240px, 100%);
+    max-width: none;
+    margin: 30px auto;
+    padding: clamp(34px, 5vw, 72px) clamp(20px, 5vw, 78px);
+}
+
+.secao-pesquisas {
+    text-align: center;
+}
+
+.introducao-pesquisa {
+    max-width: 820px;
+    margin: 0 auto clamp(42px, 6vw, 76px);
+    text-align: center;
+}
+
+.introducao-pesquisa .marcador-secao {
+    justify-content: center;
+}
+
+.introducao-pesquisa h2 {
+    margin-bottom: 22px;
+}
+
+.introducao-pesquisa .texto-introdutorio {
+    margin-bottom: 0 !important;
+}
+
+.lista-pesquisa {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 30px;
+    width: min(100%, 1000px);
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: stretch;
+    text-align: left;
+}
+
+.item-pesquisa {
+    width: 100%;
+    max-width: 480px;
+    min-height: 100%;
+    padding: 28px 30px;
+    text-align: left;
+    border-radius: 18px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    box-shadow: 0 6px 16px rgba(61, 7, 23, 0.08);
+}
+
+.item-pesquisa:nth-child(odd) {
+    justify-self: center;
+}
+
+.item-pesquisa:nth-child(even) {
+    justify-self: center;
+}
+
+.item-pesquisa h3 {
+    margin-bottom: 14px;
+    line-height: 1.2;
+}
+
+.referencias-pesquisa {
+    max-width: 900px;
+    margin: clamp(58px, 8vw, 100px) auto 0;
+    padding-top: 42px;
+    text-align: center;
+}
+
+.referencias-pesquisa h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Composição da página de pesquisas conforme a referência visual. */
+.secao-pesquisas {
+    width: min(1000px, 100%);
+    max-width: 1000px;
+    margin: 0 auto;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.introducao-pesquisa {
+    max-width: 620px;
+}
+
+.lista-pesquisa {
+    width: 100%;
+    max-width: 960px;
+}
+
+/* Quando sobra uma pergunta, ela ocupa a linha inteira e fica no centro. */
+.item-pesquisa:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.referencias-pesquisa {
+    width: min(620px, 100%);
+    max-width: 620px;
+    padding: 28px 32px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--paper);
+    box-shadow: 0 6px 16px rgba(61, 7, 23, 0.08);
+}
+
+/* Centraliza o conteúdo da página inteira no viewport. */
+.principal-pesquisa {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+    padding: 22px clamp(28px, 5vw, 84px) 56px;
+}
+
+.principal-pesquisa .secao-pesquisas {
+    width: min(1320px, 100%);
+    max-width: 1320px;
+    margin-inline: auto;
+}
+
+/* Ocupa melhor telas largas sem colar o conteúdo nas laterais. */
+body > main:not(.principal-inicio):not(.principal-pesquisa) {
+    width: 100%;
+    max-width: 1600px;
+    margin-inline: auto;
+    padding: 42px clamp(28px, 5vw, 84px) 72px;
+}
+
+body > main:not(.principal-inicio):not(.principal-pesquisa) .envoltorio-secao {
+    width: 100%;
+    max-width: 1500px;
+    margin-inline: auto;
+}
+
+/* Usa melhor a área disponível, evitando uma coluna pequena no centro. */
+.principal-pesquisa .introducao-pesquisa {
+    max-width: 900px;
+    margin-bottom: 30px;
+}
+
+.principal-pesquisa .introducao-pesquisa .marcador-secao {
+    margin-bottom: 24px;
+}
+
+.principal-pesquisa .introducao-pesquisa h2 {
+    margin-bottom: 14px;
+}
+
+.principal-pesquisa .introducao-pesquisa .texto-introdutorio {
+    max-width: 720px;
+    margin-inline: auto;
+}
+
+.principal-pesquisa .lista-pesquisa {
+    width: min(1200px, 100%);
+    max-width: 1200px;
+    gap: 28px 34px;
+}
+
+.principal-pesquisa .item-pesquisa {
+    max-width: none;
+    min-height: 230px;
+    padding: 32px 36px;
+}
+
+.principal-pesquisa .referencias-pesquisa {
+    width: min(900px, 100%);
+    max-width: 900px;
+    margin-top: 76px;
+    padding: 36px 48px;
+}
+
+/* Relação entre o tema do projeto e as ODS utilizadas. */
+.secao-ods {
+    width: min(1200px, 100%);
+    margin: 84px auto 0;
+    padding-top: 52px;
+    border-top: 1px solid var(--line);
+}
+
+.cabecalho-ods {
+    max-width: 700px;
+    margin: 0 auto 34px;
+    text-align: center;
+}
+
+.cabecalho-ods .marcador-secao {
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cabecalho-ods h2 {
+    margin-bottom: 16px;
+}
+
+.cabecalho-ods > p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: var(--muted);
+    line-height: 1.65;
+}
+
+.grade-ods {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.cartao-ods {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 24px;
+    align-items: center;
+    min-height: 230px;
+    padding: 24px;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    background: var(--paper);
+    box-shadow: 0 7px 18px rgba(61, 7, 23, 0.08);
+}
+
+.cartao-ods img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.numero-ods {
+    display: inline-block;
+    margin-bottom: 8px;
+    color: var(--wine);
+    font: 700 11px 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+}
+
+.cartao-ods h3 {
+    margin: 0 0 10px;
+    color: var(--wine);
+    font: 700 20px/1.2 'DM Sans', sans-serif;
+}
+
+.cartao-ods p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.tema-escuro .cartao-ods {
+    background: var(--paper);
+    border-color: var(--line);
+}
+
+.tema-escuro .cabecalho-ods > p,
+.tema-escuro .cartao-ods p {
+    color: var(--muted);
+}
+
+@media (max-width: 900px) {
+    .grade-ods {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== FIM: PÁGINA DE PESQUISAS E ODS ===== */
+
+/* Header da primeira versão: claro, discreto e com detalhes em vinho. */
+body:not(.tema-escuro) .cabecalho {
+    background: rgba(255, 250, 244, 0.9);
+    border-bottom: 1px solid var(--line);
+}
+
+body:not(.tema-escuro) .cabecalho .marca {
+    color: var(--wine);
+}
+
+body:not(.tema-escuro) .cabecalho .navegacao-principal a {
+    color: #765e63;
+}
+
+body:not(.tema-escuro) .cabecalho .navegacao-principal a:hover {
+    color: var(--wine);
+    background: transparent;
+}
+
+body:not(.tema-escuro) .cabecalho .botao-icone,
+body:not(.tema-escuro) .cabecalho .botao-menu {
+    border-color: var(--line);
+    color: var(--wine);
+    background: transparent;
+}
+
+body:not(.tema-escuro) .cabecalho .botao-icone:hover {
+    background: var(--soft);
+}
+
+/* Fundo claro baseado na referência enviada, sem alterar o footer. */
+body:not(.tema-escuro),
+body:not(.tema-escuro) main {
+    background-color: #FDEFD2;
+}
+
+/* Paleta clara mais viva, preservando a cor atual do footer. */
+body:not(.tema-escuro) {
+    color: #3D0717;
+}
+
+body:not(.tema-escuro) h1,
+body:not(.tema-escuro) h2,
+body:not(.tema-escuro) h3,
+body:not(.tema-escuro) h1 em,
+body:not(.tema-escuro) h2 span,
+body:not(.tema-escuro) h2 em,
+body:not(.tema-escuro) .marcador-secao,
+body:not(.tema-escuro) .sobretitulo,
+body:not(.tema-escuro) .rotulo {
+    color: #8A0028;
+}
+
+body:not(.tema-escuro) a,
+body:not(.tema-escuro) .link-texto,
+body:not(.tema-escuro) .referencias-pesquisa a {
+    color: #8A0028;
+}
+
+body:not(.tema-escuro) .rodape > a {
+    color: #FFF9ED;
+}
+
+body:not(.tema-escuro) .rodape > a:hover {
+    color: #FFFFFF;
+}
+
+body:not(.tema-escuro) .texto-introdutorio,
+body:not(.tema-escuro) .texto-introducao,
+body:not(.tema-escuro) .texto-mapa > p,
+body:not(.tema-escuro) .colunas-estudo p,
+body:not(.tema-escuro) .item-pesquisa p,
+body:not(.tema-escuro) .referencias-pesquisa p {
+    color: #64283B;
+}
+
+body:not(.tema-escuro) .botao-principal,
+body:not(.tema-escuro) .botao,
+body:not(.tema-escuro) .numero-checklist {
+    background: #8A0028;
+}
+
+body:not(.tema-escuro) .item-pesquisa,
+body:not(.tema-escuro) .cartao-checklist,
+body:not(.tema-escuro) .cabecalho-checklist,
+body:not(.tema-escuro) .cartao-principio,
+body:not(.tema-escuro) .colunas-estudo article,
+body:not(.tema-escuro) .referencias-pesquisa {
+    border-color: #D6A05B;
+}
+
+/* Contraste da seção vinho da página de cuidados. */
+body:not(.tema-escuro) .secao-principios .cabecalho-principios h2,
+body:not(.tema-escuro) .secao-principios .cabecalho-principios h2 em,
+body:not(.tema-escuro) .secao-principios .cabecalho-principios .marcador-secao {
+    color: #FFF9ED !important;
+}
+
+body:not(.tema-escuro) .secao-principios .cabecalho-principios p {
+    color: #F6D5C5 !important;
+}
+
+/* Tema claro e escuro com superfícies e contraste consistentes. */
+body {
+    background: var(--cream);
+}
+
+.cabecalho {
+    background: rgba(255, 252, 246, 0.96);
+    border-bottom: 1px solid var(--line);
+}
+
+.cabecalho .marca {
+    color: var(--wine);
+}
+
+.cabecalho .navegacao-principal a {
+    color: var(--ink);
+}
+
+.cabecalho .navegacao-principal a:hover {
+    color: var(--wine);
+    background: var(--soft);
+}
+
+.cabecalho .botao-icone,
+.cabecalho .botao-menu {
+    border-color: var(--line);
+    color: var(--wine);
+}
+
+.cabecalho .botao-icone:hover {
+    background: var(--soft);
+}
+
+.tema-escuro {
+    --wine: #d76a88;
+    --cream: #25141b;
+    --ink: #fff4eb;
+    --muted: #e0bdc2;
+    --paper: #351d27;
+    --line: #704252;
+    --soft: #492633;
+    --rosa: #d76a88;
+    --rosa-claro: #492633;
+    --borda: #704252;
+    --vinho: #d76a88;
+    --titulo: #ffd5df;
+    --texto: #fff4eb;
+    --fundo: #25141b;
+    background: var(--fundo) !important;
+    color: var(--ink) !important;
+}
+
+.tema-escuro .cabecalho {
+    background: rgba(37, 20, 27, 0.97);
+    border-bottom-color: var(--line);
+}
+
+.tema-escuro .navegacao-principal,
+.tema-escuro .navegacao-principal a,
+.tema-escuro .marca,
+.tema-escuro .botao-icone,
+.tema-escuro .botao-menu {
+    color: var(--ink);
+}
+
+.tema-escuro .secao-destaque,
+.tema-escuro .secao-pesquisas,
+.tema-escuro .item-pesquisa,
+.tema-escuro .grade-introducao > div,
+.tema-escuro .texto-mapa,
+.tema-escuro .introducao-quiz,
+.tema-escuro .introducao-formulario,
+.tema-escuro .conteudo-encerramento,
+.tema-escuro .referencias,
+.tema-escuro .colunas-estudo article,
+.tema-escuro .formulario-feedback,
+.tema-escuro .cartao-principio,
+.tema-escuro .cabecalho-checklist,
+.tema-escuro .cartao-checklist {
+    background: var(--paper);
+    color: var(--ink);
+    border-color: var(--line);
+}
+
+.tema-escuro .secao-destaque {
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.tema-escuro .secao-principios,
+.tema-escuro .rodape {
+    background: #54152a;
+}
+
+.tema-escuro .secao-quiz {
+    background: #492633;
+}
+
+.tema-escuro .item-pesquisa p,
+.tema-escuro .referencias-pesquisa p,
+.tema-escuro .cartao-checklist p,
+.tema-escuro .cabecalho-checklist > p,
+.tema-escuro .cartao-principio p {
+    color: var(--muted);
+}
+
+.tema-escuro .item-pesquisa strong,
+.tema-escuro .referencias-pesquisa a,
+.tema-escuro .cartao-checklist h3,
+.tema-escuro .cartao-principio h3 {
+    color: var(--titulo);
+}
+
+/* Aumento moderado: melhora a leitura sem redimensionar toda a interface. */
+.texto-grande p,
+.texto-grande li,
+.texto-grande label,
+.texto-grande .texto-introdutorio,
+.texto-grande .texto-introducao,
+.texto-grande .texto-mapa > p,
+.texto-grande .colunas-estudo p,
+.texto-grande .introducao-quiz > p,
+.texto-grande .item-pesquisa p,
+.texto-grande .referencias-pesquisa p {
+    font-size: 106% !important;
+}
+
+.texto-grande h1 {
+    font-size: clamp(38px, 4.4vw, 52px) !important;
+}
+
+.texto-grande h2 {
+    font-size: clamp(31px, 3.5vw, 43px) !important;
+}
+
+.texto-grande h3 {
+    font-size: 106% !important;
+}
+
+.texto-grande a,
+.texto-grande span,
+.texto-grande .botao,
+.texto-grande .link-texto {
+    font-size: 106% !important;
+}
+
+/* O controle de fonte aumenta o conteúdo sem redimensionar a navegação. */
+.texto-grande .cabecalho .marca,
+.texto-grande .cabecalho .marca span {
+    font-size: 24px !important;
+}
+
+.texto-grande .cabecalho .navegacao-principal a {
+    font-size: 13px !important;
+}
+
+.texto-grande .cabecalho .botao-icone,
+.texto-grande .cabecalho .botao-menu {
+    font-size: 20px !important;
+}
+
+@media (max-width: 700px) {
+    .principal-inicio {
+        padding: 18px 14px 0;
+    }
+
+    .principal-inicio .secao-destaque {
+        min-height: 0;
+        padding: 32px 22px 40px;
+    }
+
+    .secao-pesquisas {
+        margin: 18px auto;
+        padding: 32px 18px 44px;
+    }
+
+    .principal-pesquisa {
+        padding: 24px 14px 48px;
+    }
+
+    .principal-pesquisa .item-pesquisa {
+        min-height: 0;
+        padding: 26px 24px;
+    }
+
+    .principal-pesquisa .referencias-pesquisa {
+        padding: 28px 22px;
+    }
+
+    .principal-cuidados .secao-principios {
+        width: calc(100% - 24px);
+        margin: 18px auto;
+        border-radius: 18px;
+    }
+
+    .lista-pesquisa {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .item-pesquisa,
+    .item-pesquisa:nth-child(odd),
+    .item-pesquisa:nth-child(even) {
+        justify-self: stretch;
+        max-width: none;
+    }
+}
+
+/* Mantém o texto do botão inicial legível sobre o fundo vinho. */
+body:not(.tema-escuro) .principal-inicio .botao-principal {
+    color: #FFF9ED;
+}
+
+/* Alinha a ilustração da seção de possibilidades ao cartão ao lado. */
+.secao-mapa {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(28px, 5vw, 80px);
+    align-items: stretch;
+}
+
+.secao-mapa .texto-mapa {
+    max-width: none;
+}
+
+.arte-mapa {
+    display: flex;
+}
+
+.arte-mapa img {
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 700px) {
+    .arte-mapa img {
+        height: auto;
+    }
+}
+
+/* Mantém o cabeçalho "Na prática" centralizado no conteúdo da página. */
+.secao-estudo > .marcador-secao,
+.secao-estudo .cabecalho-estudo {
+    width: 100%;
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.secao-estudo > .marcador-secao {
+    justify-content: center;
+    font-size: 14px;
+}
+
+.secao-estudo .cabecalho-estudo {
+    text-align: center;
+}
+
+.secao-estudo .cabecalho-estudo h2 {
+    width: 100%;
+    font-size: 34px;
+}
+
+.secao-estudo .cabecalho-estudo p {
+    margin-inline: auto;
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    .secao-estudo > .marcador-secao,
+    .secao-estudo .cabecalho-estudo {
+        max-width: none;
+    }
+}
+
+/* Mantém o link do rodapé visível após as regras globais de links. */
+body:not(.tema-escuro) .rodape > a {
+    display: inline-block;
+    color: #FFF9ED !important;
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Indica a página atual no cabeçalho com um realce suave. */
+.cabecalho .navegacao-principal a[aria-current="page"] {
+    color: var(--wine);
+    background: rgba(138, 0, 40, 0.045);
+    border: 1px solid rgba(138, 0, 40, 0.18);
+    border-radius: 14px;
+    box-shadow: 0 0 14px rgba(138, 0, 40, 0.13);
+    font-weight: 600;
+}
+
+.tema-escuro .cabecalho .navegacao-principal a[aria-current="page"] {
+    color: var(--ink);
+    background: rgba(255, 221, 231, 0.07);
+    border-color: rgba(255, 221, 231, 0.24);
+    box-shadow: 0 0 14px rgba(215, 106, 136, 0.22);
+}
+
+/* Mantém todo o conteúdo do rodapé branco no tema escuro. */
+.tema-escuro .rodape,
+.tema-escuro .rodape > div,
+.tema-escuro .rodape > div span,
+.tema-escuro .rodape > a,
+.tema-escuro .rodape > a:hover {
+    color: #fff !important;
+}
+
+.cabecalho .marca[aria-current="page"] {
+    filter: drop-shadow(0 2px 5px rgba(80, 0, 24, 0.25));
+}
+
+/* Garante contraste dos textos e ações sobre o cartão vinho do quiz. */
+.cartao-quiz .resultado-quiz .rotulo,
+.cartao-quiz .resultado-quiz h3,
+.cartao-quiz .feedback-quiz .link-claro {
+    color: #FFF9ED !important;
+}
+
+.cartao-quiz .resultado-quiz .botao-claro {
+    color: #7A0022 !important;
+    background: #FFF9ED !important;
+}
+
+.cartao-quiz .resultado-quiz .botao-claro:hover {
+    background: #F2DDBA !important;
+}
+
+/* Organiza a página de referências: texto e ilustração lado a lado, lista centralizada abaixo. */
+.principal-referencias .secao-encerramento {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+}
+
+.principal-referencias .conteudo-encerramento {
+    max-width: none;
+}
+
+.principal-referencias .lateral-encerramento {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+}
+
+.principal-referencias .arte-encerramento img {
+    width: min(100%, 440px);
+    max-width: none;
+}
+
+.principal-referencias .referencias {
+    grid-column: 1 / -1;
+    width: min(100%, 900px);
+    justify-self: center;
+    margin-top: 8px;
+    padding: 24px clamp(20px, 4vw, 40px);
+    border: 0;
+    text-align: center;
+}
+
+.principal-referencias .referencias .rotulo {
+    text-align: center;
+}
+
+@media (max-width: 700px) {
+    .principal-referencias .secao-encerramento {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .principal-referencias .lateral-encerramento {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
+    .principal-referencias .referencias {
+        grid-column: 1;
+    }
+}
+
+/* Mantém o texto do botão de retorno legível sobre o fundo vinho no modo claro. */
+body:not(.tema-escuro) .principal-referencias .conteudo-encerramento .botao-principal {
+    color: #FFF9ED;
+}
+
+@media (max-width: 650px) {
+    .rodape {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .rodape > div {
+        width: auto;
+        flex-wrap: nowrap;
+        justify-content: center;
+    }
+
+    .rodape > div span:last-child {
+        width: auto;
+        margin: 0;
+    }
+
+    .rodape > a {
+        flex: none;
+        white-space: nowrap;
+    }
+}
+
+/* =========================================================
+   LEITURA EM TELAS GRANDES — APRESENTAÇÃO COM PROJETOR
+   ========================================================= */
+@media (min-width: 701px) {
+    body { font-size: 19px; }
+    .cabecalho { min-height: 86px; height: auto; padding-inline: clamp(24px, 4vw, 64px); }
+    .marca { font-size: 27px; }
+    .navegacao-principal a { font-size: clamp(14px, 1.1vw, 17px); padding: 9px 12px; }
+    .sobretitulo, .marcador-secao, .rotulo, .rotulo-arte-destaque, .indice-destaque { font-size: 15px; }
+    h1 { font-size: clamp(46px, 5vw, 68px); line-height: 1.12; }
+    h2 { font-size: clamp(36px, 4vw, 52px); line-height: 1.15; }
+    .secao-estudo .cabecalho-estudo h2 { font-size: clamp(38px, 4vw, 50px); }
+    .texto-introdutorio, .texto-introducao, .texto-mapa > p, .cabecalho-estudo p,
+    .colunas-estudo p, .cabecalho-principios p, .introducao-quiz > p,
+    .introducao-formulario > p:last-child, .conteudo-encerramento p,
+    .texto-destaque-ferramentas > p, .texto-cartao-ferramenta > p:not(.dica-ferramenta),
+    .lembrete-ferramentas > div:last-child > p:last-child {
+        font-size: clamp(18px, 1.35vw, 22px); line-height: 1.6;
+    }
+    .cartao-principio h3, .colunas-estudo h3, .texto-cartao-ferramenta h3 { font-size: clamp(25px, 2vw, 31px); }
+    .topo-principio span, .tipo-ferramenta, .nota-destaque, .nota-destaque-ferramentas strong,
+    .nota-destaque-ferramentas p, .estatisticas-mapa span { font-size: 14px; }
+    .estatisticas-mapa strong { font-size: 25px; }
+    .botao, .link-texto, .opcao-quiz, .linha-formulario input, .linha-formulario select,
+    .linha-formulario textarea { font-size: 17px; }
+    .linha-formulario label, .linha-caixa-selecao, .status-formulario, .dica-ferramenta,
+    .feedback-quiz { font-size: 16px; }
+    .pergunta-quiz { font-size: clamp(30px, 3vw, 42px); line-height: 1.2; }
+    .rodape { font-size: 15px; }
+    .acoes-ferramenta-introducao span { font-size: 13px; }
+}
+
+/* Texto corrido ampliado em todas as páginas para leitura à distância. */
+main p:not(.rotulo):not(.marcador-secao):not(.sobretitulo),
+main li {
+    font-size: clamp(21px, 1.65vw, 24px) !important;
+    line-height: 1.65;
+}
+
+/* Mantém os cartões de cuidados alinhados pelo topo e com alturas iguais. */
+.lista-principios {
+    align-items: stretch;
+}
+
+/* Ajustes de leitura e largura específicos da página do quiz. */
+main.principal-quiz {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+}
+
+.principal-quiz .secao-quiz {
+    grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.28fr);
+    align-items: center;
+    gap: clamp(36px, 7vw, 100px);
+}
+
+.principal-quiz .introducao-quiz h1 {
+    max-width: 100%;
+    font-size: clamp(40px, 4.4vw, 60px);
+    line-height: 1.08;
+    overflow-wrap: anywhere;
+}
+
+.principal-quiz .pergunta-quiz {
+    font-size: clamp(28px, 2.6vw, 38px);
+}
+
+.principal-quiz .opcao-quiz {
+    font-size: clamp(17px, 1.3vw, 20px);
+    padding: 16px 18px;
+}
+
+@media (max-width: 900px) {
+    .principal-quiz .secao-quiz {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 36px;
+    }
+
+    .principal-quiz .introducao-quiz {
+        max-width: 620px;
+    }
+}
+
+@media (max-width: 700px) {
+    .principal-quiz .secao-quiz {
+        padding: 48px 22px;
+    }
+
+    .principal-quiz .introducao-quiz h1 {
+        font-size: clamp(36px, 10vw, 48px);
+    }
+
+    .principal-quiz .cartao-quiz {
+        min-width: 0;
+        padding: 28px 20px;
+    }
+}
+
+
+/* Mantém NEXO / TRUST US legível no modo escuro da página de referências. */
+body.tema-escuro #selo-nexo-referencias {
+    color: #FFF9ED !important;
+    -webkit-text-fill-color: #FFF9ED !important;
+}
+
+.principal-referencias .referencias a span:first-child {
+    overflow-wrap: anywhere;
+    min-width: 0;
+}
+
