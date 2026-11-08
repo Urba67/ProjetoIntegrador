@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monte um plano de aprendizagem para provas, trabalhos e atividades com apoio responsável da IA.">
+  <title>NEXO — Plano de estudo</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/NEXO.png">
+</head>
+<body>
+
+  <header class="cabecalho" id="topo">
+    <a class="marca" href="index.html" aria-label="NEXO, voltar ao início">
+      <img class="imagem-marca" src="img/NEXO.png" alt="">
+      <span>NEXO</span>
+    </a>
+
+    <nav class="navegacao-principal" id="main-nav" aria-label="Navegação principal">
+      <a href="metodo.html">Método de estudo</a>
+      <a href="ferramentas.html">Ferramentas de IA</a>
+      <a href="cuidados.html">Cuidados</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="formulario.html" aria-current="page">Formulário</a>
+      <a href="pesquisas.html">Pesquisa</a>
+      <a href="referencias.html">Referências</a>
+    </nav>
+
+    <div class="acoes-cabecalho">
+      <button class="botao-icone botao-tamanho-texto" id="text-toggle" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte">A+</button>
+      <button class="botao-icone" id="theme-toggle" aria-label="Alternar modo de cor" title="Modo de cor">☾</button>
+      <button class="botao-menu" id="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main class="principal-formulario">
+    <section class="secao-formulario envoltorio-secao" id="formulario">
+      <div class="marcador-secao">
+
+      </div>
+
+      <div class="layout-formulario">
+        <div class="introducao-formulario">
+          <p class="rotulo">06 / SEU PLANO</p>
+          <h2>Organize seu<br><span>aprendizado.</span></h2>
+          <p>Preencha os dados abaixo para receber um roteiro de estudo. O plano pode apoiar provas, trabalhos e atividades e deve ser ajustado com a orientação do professor.</p>
+        </div>
+
+        <form class="formulario-feedback" id="feedback-form">
+          <div class="linha-formulario">
+            <label for="student-name">Nome</label>
+            <input type="text" id="student-name" name="name" autocomplete="name" placeholder="Digite seu nome" required>
+          </div>
+
+          <div class="linha-formulario">
+            <label for="subject">Matéria ou projeto</label>
+            <input type="text" id="subject" name="subject" placeholder="Ex.: Biologia, Matemática ou trabalho de História" required>
+          </div>
+
+          <div class="linha-formulario">
+            <label for="exam-date">Data de entrega ou prova</label>
+            <input type="date" id="exam-date" name="exam-date" required>
+          </div>
+
+          <div class="linha-formulario">
+            <label for="confidence">Como você se sente com o conteúdo?</label>
+            <select id="confidence" name="confidence" required>
+              <option value="" selected disabled>Selecione uma opção</option>
+              <option value="low">Ainda estou começando</option>
+              <option value="medium">Entendo uma parte</option>
+              <option value="high">Só preciso praticar e revisar</option>
+            </select>
+          </div>
+
+          <div class="linha-formulario">
+            <label for="topics">Quais tópicos precisam entrar no plano?</label>
+            <textarea id="topics" name="topics" rows="5" placeholder="Separe os assuntos por vírgula ou escreva um por linha" required></textarea>
+          </div>
+
+          <label class="linha-caixa-selecao" for="responsible-use">
+            <input type="checkbox" id="responsible-use" name="responsible-use" required>
+            <span>Vou manter minha autoria, conferir as informações e usar a IA como apoio — nunca como substituta do professor.</span>
+          </label>
+
+          <button class="botao botao-principal" type="submit">Montar meu plano <span>↗</span></button>
+          <p class="status-formulario" id="form-status" role="status" aria-live="polite"></p>
+          <div class="resultado-plano" id="plan-result" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div>
+      <span>✦</span>
+      <span>NEXO — IA como apoio na escola</span>
+    </div>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao topo ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
