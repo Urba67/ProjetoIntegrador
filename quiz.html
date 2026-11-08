@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teste seus conhecimentos sobre o uso responsável da inteligência artificial na escola.">
+  <title>NEXO — Quiz sobre IA na escola</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="img/NEXO.png">
+</head>
+<body>
+  <header class="cabecalho" id="topo">
+    <a class="marca" href="index.html" aria-label="NEXO, voltar ao início">
+      <img class="imagem-marca" src="img/NEXO.png" alt="">
+      <span>NEXO</span>
+    </a>
+
+    <nav class="navegacao-principal" id="main-nav" aria-label="Navegação principal">
+      <a href="metodo.html">Método de estudo</a>
+      <a href="ferramentas.html">Ferramentas de IA</a>
+      <a href="cuidados.html">Cuidados</a>
+      <a href="quiz.html" aria-current="page">Quiz</a>
+      <a href="formulario.html">Formulário</a>
+      <a href="pesquisas.html">Pesquisa</a>
+      <a href="referencias.html">Referências</a>
+    </nav>
+
+    <div class="acoes-cabecalho">
+      <button class="botao-icone botao-tamanho-texto" id="text-toggle" aria-label="Aumentar tamanho da fonte" title="Aumentar fonte">A+</button>
+      <button class="botao-icone" id="theme-toggle" aria-label="Alternar modo de cor" title="Modo de cor">☾</button>
+      <button class="botao-menu" id="menu-toggle" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main class="principal-quiz">
+    <section class="secao-quiz envoltorio-secao" aria-labelledby="quiz-title">
+      <div class="introducao-quiz">
+        <p class="rotulo">08 / TESTE SEUS CONHECIMENTOS</p>
+        <h1 id="quiz-title">Quiz sobre<br><span>IA na escola.</span></h1>
+        <p>Responda às perguntas e veja como usar a inteligência artificial como apoio para aprender, sem abrir mão da sua autoria.</p>
+        <div class="progresso-quiz" aria-hidden="true">
+          <span id="quiz-progress-bar"></span>
+        </div>
+        <small id="quiz-counter" aria-live="polite">Pergunta 1 de 5</small>
+      </div>
+
+      <div class="cartao-quiz" id="quiz-card" aria-live="polite" aria-atomic="true"></div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div>
+      <span>✦</span>
+      <span>NEXO — IA como apoio na escola</span>
+    </div>
+    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Voltar ao topo ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
